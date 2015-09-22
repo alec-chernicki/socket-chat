@@ -1,0 +1,176 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+}
+
+h1,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.main {
+  border-top: solid 20px #263238;
+  display: flex;
+  flex-direction: column;
+  float: left;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 82%;
+}
+
+/**********************
+Username List
+**********************/
+.usernames {
+  background-color: #263238;
+  float: left;
+  height: 100%;
+  width: 18%;
+}
+
+.usernames li {
+  border-bottom: solid 1px #344148;
+  color: #FFF;
+  list-style: none;
+  overflow: hidden;
+  padding: 15px 20px;
+  text-overflow: ellipsis;
+}
+
+.current-users {
+  margin-top: 20px;
+  background-color: #46AEC3;
+  color: #FFF;
+  padding: 20px;
+  width: 100%;
+}
+
+/**********************
+Messages
+**********************/
+.messages {
+  display: none;
+  flex: 1;
+  overflow: scroll;
+  padding: 30px 30px 10px;
+  width: 100%;
+}
+
+.message {
+  margin-bottom: 15px;
+}
+
+.message-text {
+  color: #6F7C82;
+  display: inline-block;
+  font-size: 16px;
+  max-width: 700px;
+  word-break: break-word;
+}
+
+.message-name {
+  color: #25292D;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+
+/**********************
+Send Message
+**********************/
+.send-message {
+  background-color: #F5F5F5;
+  border-top: solid 1px #BDBDBD;
+  display: none;
+  height: 75px;
+  padding: 0 105px 0 30px;
+  width: 100%;
+}
+
+.send-message input[type='text'] {
+  background-color: #F5F5F5;
+  border: 0;
+  height: 100%;
+  outline: none;
+  width: 100%;
+}
+
+.send-message input[type='submit'] {
+  background-color: #46AEC3;
+  border: none;
+  bottom: 0;
+  color: #FFF;
+  height: 75px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  width: 75px;
+}
+
+/**********************
+Set Username Form
+**********************/
+.set-username {
+  bottom: 0;
+  height: 150px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 300px;
+}
+
+.set-username input[type='text'] {
+  border: solid 1px #263238;
+  border-radius: 5px;
+  margin: 20px 0;
+  outline: 0;
+  padding: 10px;
+  width: 100%;
+}
+
+.set-username input[type='submit'] {
+  background-color: #46AEC3;
+  border: none;
+  border-radius: 5px;
+  color: #FFF;
+  display: block;
+  padding: 10px 30px;
+}
+
+.username-error {
+  color: #E53935;
+  position: absolute;
+  top: -60px;
+}
+
+/**********************
+Media Queries
+**********************/
+@media only screen and (max-width : 880px) {
+  .usernames {
+    display: none;
+  }
+
+  .main {
+    width: 100%;
+  }
+}

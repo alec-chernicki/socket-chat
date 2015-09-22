@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Socket Chat</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="/main.css">
+  </head>
+  <body>
+    <section class="usernames">
+      <div class="current-users">Users Online:</div>
+      <ul id="js-username-list"></ul>
+    </section>
+    <div class="main">
+      <form id="js-set-username" class="set-username">
+        <label for="username">Enter a username:</label>
+        <input type="text" id="js-set-username-input"/>
+        <input type="submit"/>
+      </form>
+      <section id="js-message-list" class="messages">
+      </section>
+      <form id="js-send-message" class="send-message">
+        <input type="text" id="js-send-message-input" placeholder="Type your message..."></textarea>
+        <input type="submit" value="Send"/>
+      </form>
+    </div>
+
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/main.js"></script>
+  </body>
+</html>
