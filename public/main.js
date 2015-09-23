@@ -16,7 +16,8 @@ jQuery(function($) {
         $setUsernameForm.hide();
         $messageForm.show();
         $messageList.show();
-      } else {
+      }
+      else {
         if ($('.username-error').length !== 1) {
           $setUsernameForm.prepend('<p class="username-error">Uh oh, that username is either invalid or already taken. Try again.</p>');
         }

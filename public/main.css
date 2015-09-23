@@ -22,6 +22,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+input {
+  -webkit-appearance: none;
+}
+
 .main {
   border-top: solid 20px #263238;
   display: flex;
@@ -38,9 +42,15 @@ Username List
 **********************/
 .usernames {
   background-color: #263238;
+  border-top: solid 20px #263238;
   float: left;
   height: 100%;
+  overflow: auto;
   width: 18%;
+}
+
+.usernames::-webkit-scrollbar {
+    display: none;
 }
 
 .usernames li {
@@ -49,11 +59,11 @@ Username List
   list-style: none;
   overflow: hidden;
   padding: 15px 20px;
+  max-height: 55px;
   text-overflow: ellipsis;
 }
 
 .current-users {
-  margin-top: 20px;
   background-color: #46AEC3;
   color: #FFF;
   padding: 20px;
@@ -66,7 +76,7 @@ Messages
 .messages {
   display: none;
   flex: 1;
-  overflow: scroll;
+  overflow: auto;
   padding: 30px 30px 10px;
   width: 100%;
 }
@@ -114,6 +124,7 @@ Send Message
 .send-message input[type='submit'] {
   background-color: #46AEC3;
   border: none;
+  border-radius: 0;
   bottom: 0;
   color: #FFF;
   height: 75px;

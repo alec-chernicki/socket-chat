@@ -14,23 +14,36 @@ app.get('/', function (req, res) {
 
 io.on('connection', function (socket) {
   socket.on('username', function (data, callback) {
-    if (usernameList.indexOf(data) != -1 || !data) {
+    var lowercaseUsernames = [];
+    for (var i = 0; i < usernameList.length; i++) {
+      lowercaseUsernames.push(usernameList[i].toLowerCase());
+    }
+    console.log(data);
+
+    if (lowercaseUsernames.indexOf(data.toLowerCase()) != -1 || !data) {
       callback(false);
     }
     else {
       callback(true);
       usernameList.push(data);
       socket.username = data;
-      console.log('Current users: ' + usernameList);
       io.emit('usernames', usernameList);
     }
   });
 
   socket.on('user message', function(data) {
-    io.emit('user message', {
-      username: socket.username,
-      message: data
-    });
+    if(data.length > 300) {
+      socket.emit('user message' , {
+        username: 'Socket Chat',
+        message: 'Uh oh, message too long, try again.'
+      });
+    }
+    else {
+      io.emit('user message', {
+        username: socket.username,
+        message: data
+      });
+    }
   });
 
   socket.on('disconnect', function () {
