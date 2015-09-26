@@ -2,7 +2,9 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
+
 var usernameList = [];
+var isAlphaNumeric = /^[a-zA-Z0-9]+$/;
 
 var port = process.env.PORT || 3000;
 
@@ -19,7 +21,7 @@ io.on('connection', function (socket) {
       lowercaseUsernames.push(usernameList[i].toLowerCase());
     }
 
-    if (lowercaseUsernames.indexOf(data.toLowerCase()) != -1 || !data) {
+    if (lowercaseUsernames.indexOf(data.toLowerCase()) != -1 || !isAlphaNumeric.test(data)) {
       callback(false);
     }
     else {
