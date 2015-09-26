@@ -18,7 +18,6 @@ io.on('connection', function (socket) {
     for (var i = 0; i < usernameList.length; i++) {
       lowercaseUsernames.push(usernameList[i].toLowerCase());
     }
-    console.log(data);
 
     if (lowercaseUsernames.indexOf(data.toLowerCase()) != -1 || !data) {
       callback(false);
